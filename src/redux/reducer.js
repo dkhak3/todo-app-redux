@@ -27,19 +27,12 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
+  console.log("🚀 ~ file: reducer.js:30 ~ rootReducer ~ state:", state);
   switch (action.type) {
     case "todoList/addTodo":
       return {
         ...state,
-        todoList: [
-          ...state.todoList,
-          {
-            id: 4,
-            name: "Learn nodejS 2",
-            completed: false,
-            priority: "Low",
-          },
-        ],
+        todoList: [...state.todoList, action.payload],
       };
 
     default:
