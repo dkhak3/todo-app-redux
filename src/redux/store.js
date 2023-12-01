@@ -1,9 +1,26 @@
-import { createStore } from "redux";
-import rootReducer from "./reducer";
-import { composeWithDevTools } from "redux-devtools-extension";
+// ========= REDUX CORE =========
 
-const composedEnhancers = composeWithDevTools();
+// import { createStore } from "redux";
+// import rootReducer from "./reducer";
+// import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(rootReducer, composedEnhancers);
+// const composedEnhancers = composeWithDevTools();
+
+// const store = createStore(rootReducer, composedEnhancers);
+
+// export default store;
+
+// ========= REDUX TOOLKIT =========
+
+import { configureStore } from "@reduxjs/toolkit";
+import filtersReducer from "../components/Filters/FiltersSlice";
+import todoListReducer from "../components/TodoList/TodosSlice";
+
+const store = configureStore({
+  reducer: {
+    filters: filtersReducer,
+    todoList: todoListReducer,
+  },
+});
 
 export default store;
