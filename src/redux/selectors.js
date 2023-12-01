@@ -1,4 +1,5 @@
-import { createSelector } from "reselect";
+// import { createSelector } from "reselect";
+import { createSelector } from "@reduxjs/toolkit";
 
 // select lấy ra từ dispatch
 export const searchTextSelector = (state) => state.filters.search;

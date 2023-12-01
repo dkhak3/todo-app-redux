@@ -1,38 +1,78 @@
-const initState = [
-  {
-    id: 1,
-    name: "Learn redux",
-    completed: false,
-    priority: "Medium",
-  },
-  {
-    id: 2,
-    name: "Learn react",
-    completed: true,
-    priority: "High",
-  },
-  {
-    id: 3,
-    name: "Learn nodejS",
-    completed: false,
-    priority: "Low",
-  },
-];
+// ============ REDUX CORE ============
 
-const todoListRecuder = (state = initState, action) => {
-  switch (action.type) {
-    case "todoList/addTodo":
-      return [...state, action.payload];
+// const initState = [
+//   {
+//     id: 1,
+//     name: "Learn redux",
+//     completed: false,
+//     priority: "Medium",
+//   },
+//   {
+//     id: 2,
+//     name: "Learn react",
+//     completed: true,
+//     priority: "High",
+//   },
+//   {
+//     id: 3,
+//     name: "Learn nodejS",
+//     completed: false,
+//     priority: "Low",
+//   },
+// ];
 
-    case "todoList/toggleTodoStatus":
-      return state.map((todo) =>
-        todo.id === action.payload
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      );
-    default:
-      return state;
-  }
-};
+// const todoListRecuder = (state = initState, action) => {
+//   switch (action.type) {
+//     case "todoList/addTodo":
+//       return [...state, action.payload];
 
-export default todoListRecuder;
+//     case "todoList/toggleTodoStatus":
+//       return state.map((todo) =>
+//         todo.id === action.payload
+//           ? { ...todo, completed: !todo.completed }
+//           : todo
+//       );
+//     default:
+//       return state;
+//   }
+// };
+
+// export default todoListRecuder;
+
+// ============ REDUX TOOLKIT ============
+import { createSlice } from "@reduxjs/toolkit";
+
+export default createSlice({
+  name: "todoList",
+  initialState: [
+    {
+      id: 1,
+      name: "Learn redux",
+      completed: false,
+      priority: "Medium",
+    },
+    {
+      id: 2,
+      name: "Learn react",
+      completed: true,
+      priority: "High",
+    },
+    {
+      id: 3,
+      name: "Learn nodejS",
+      completed: false,
+      priority: "Low",
+    },
+  ],
+  reducers: {
+    addTodo: (state, action) => {
+      state.push(action.payload);
+    }, // action creators
+    toggleTodoStatus: (state, action) => {
+      const currentTodo = state.find((todo) => todo.id === action.payload);
+      if (currentTodo) {
+        currentTodo.completed = !currentTodo.completed;
+      }
+    },
+  },
+});

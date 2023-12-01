@@ -13,13 +13,13 @@
 // ========= REDUX TOOLKIT =========
 
 import { configureStore } from "@reduxjs/toolkit";
-import filtersReducer from "../components/Filters/FiltersSlice";
-import todoListReducer from "../components/TodoList/TodosSlice";
+import filtersSlice from "../components/Filters/filtersSlice";
+import todoListSlice from "../components/TodoList/todosSlice";
 
 const store = configureStore({
   reducer: {
-    filters: filtersReducer,
-    todoList: todoListReducer,
+    filters: filtersSlice.reducer,
+    todoList: todoListSlice.reducer,
   },
 });
 
