@@ -27,7 +27,6 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  console.log("🚀 ~ file: reducer.js:30 ~ rootReducer ~ state:", state);
   switch (action.type) {
     case "todoList/addTodo":
       return {
