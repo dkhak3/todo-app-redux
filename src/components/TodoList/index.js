@@ -42,6 +42,7 @@ export default function TodoList() {
             name={todo.name}
             priority={todo.priority}
             completed={todo.completed}
+            id={todo.id}
           />
         ))}
       </Col>

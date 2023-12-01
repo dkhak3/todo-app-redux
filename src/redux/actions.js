@@ -4,7 +4,14 @@ export const addTodo = (data) => {
     type: "todoList/addTodo",
     payload: data,
   };
-}; 
+};
+
+export const toggleTodoStatus = (todoId) => {
+  return {
+    type: "todoList/toggleTodoStatus",
+    payload: todoId,
+  };
+};
 
 export const searchFilterChange = (text) => {
   return {
