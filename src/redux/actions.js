@@ -4,7 +4,7 @@ export const addTodo = (data) => {
     type: "todoList/addTodo",
     payload: data,
   };
-};
+}; 
 
 export const searchFilterChange = (text) => {
   return {
@@ -17,5 +17,12 @@ export const statusFilterChange = (status) => {
   return {
     type: "filters/statusFilterChange",
     payload: status,
+  };
+};
+
+export const priorityFilterChange = (primaries) => {
+  return {
+    type: "filters/prioritesFilterChange",
+    payload: primaries,
   };
 };

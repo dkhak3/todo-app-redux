@@ -9,7 +9,7 @@ const initState = [
     id: 2,
     name: "Learn react",
     completed: true,
-    priority: "Hight",
+    priority: "High",
   },
   {
     id: 3,
